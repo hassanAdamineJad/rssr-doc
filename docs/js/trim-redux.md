@@ -1,7 +1,7 @@
 # Trim-Redux
 
-Trim-redux is a library which make the redux easier to use. We don't have action, reducer, dispatch, combinReducer in
-trim-redux and all we do is calling setStore command which implemented in trim-redux and do all redux thing behind the scence. 
+Trim-redux is a library which make the redux easier to use.We don't have action, reducer, dispatch, combinReducer by using the 
+trim-redux library and all we do is calling setStore command which implemented in trim-redux and do all redux thing behind the scence. 
 To learn more about trim-redux follow the [official document](https://github.com/ebrahimiaval/trim-redux#readme)
 
 # Usage
