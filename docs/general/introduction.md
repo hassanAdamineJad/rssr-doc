@@ -19,28 +19,29 @@ Here's a curated list of packages that you should be at least familiar with befo
 
 ## Project Structure
 
-
-
-### `src/`
-
-
 ### `provider/`
-
-
-- `provider/webpack`: 
-
+This is our starting point, which includes basic settings.
 - `provider/server`: As the name suggests, this folder contains development and production server configuration.
+
+- `provider/webpack`: This folder contains webpack configuration 
 
 - `provider/setup`: 
 
 
 ### `public/`
+Here is where all the static files are stored.
+
+
+
+### `src/`
+This is the body of our application.
+
+### `.bablere, eslintre, .env ...` : 
+There are Bable confige, ESlint confige, environment variable and ... .
 
 
 
 ## Basic Building Blocks
-
-
 
 
 ### TrimRedux
