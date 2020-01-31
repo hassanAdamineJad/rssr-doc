@@ -35,6 +35,14 @@ Here is where all the static files are stored.
 
 ### `src/`
 This is the body of our application.
+- `src/App`:
+- `src/Component`:
+- `src/Partioal`:
+- `src/render`:
+   - `Server` 
+   - `Template` 
+   - `client.js` 
+- `src/setup`:
 
 ### `.bablere, eslintre, .env ...` : 
 There are Bable confige, ESlint confige, environment variable and ... .
