@@ -43,6 +43,15 @@ This is the body of our application.
    - `Template` 
    - `client.js` 
 - `src/setup`:
+     - `Style`: this directory contains public styles.
+     - `Utility`: this directory contains public javascript functions.
+     - `Constant.js`: Here are constants.
+     - `loacalStorage.js`: There are some datas that I went to set to browser's local storage at initial loading. 
+     - `Store.js`: There are the initial state and configs about [`Trim-Redux`](../js/trim-redux.md) .
+
+## Relationships Between directories
+
+<img src="relationships.png" title="Relationships Between directories" />
 
 ### `.bablere, eslintre, .env ...` : 
 There are Bable confige, ESlint confige, environment variable and ... .
