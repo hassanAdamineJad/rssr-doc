@@ -28,7 +28,7 @@ npm run up
 
 
 ## Building
-Webpack builds our files.
+Webpack builds our files and creates `/dist` folder on directory.
 
 ```Shell
 npm run build
