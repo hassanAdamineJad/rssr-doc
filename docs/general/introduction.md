@@ -5,13 +5,13 @@
 ## Camel case
 Camel case is the practice of writing phrases such that each word or abbreviation in the middle of the phrase begins with a capital letter, with no intervening spaces or punctuation. Common examples include "iPhone" and "eBay".
 
-### `Note:` we use camcel case to name file and directory in RSSR
-### `Note:` component style file must be named as camel case in RSSR
+### `Note:` We use camcel case to name file and directory in RSSR
+### `Note:` Component style file must be named as camel case in RSSR
 
 ## Pascal Case
 PascalCase is a naming convention in which the first letter of each word in a compound word is capitalized
 
-### `Note:` component file must be named as pascal case in RSSR
+### `Note:` Component file must be named as pascal case in RSSR
 
 # Tech Stack
 
@@ -70,8 +70,8 @@ There are Bable confige, ESlint confige, environment variable and ... .
 
 # RSSR Directory
 There are two kind of directory in RSSR.
-- Entity Directory
-- Wrap Directory
+- [Entity Directory](#entity-directory)
+- [Wrap Directory](#wrap-directory)
 
 ## Entity Directory
 An entity directory is any singular, identifiable and separate directory and grow subcomponent like tree structure. ex: home.js, about.js etc.
@@ -79,28 +79,29 @@ An entity directory is any singular, identifiable and separate directory and gro
 ## Wrap Directory
 It doesn't have Entity directory and isolated with their behvior, in fact to make project readable, they can hold different entity inside.
 
-### `Note:` wrap directory can be chaining like partial, component folder can be connected togather inside like graph structure
+### `Note:` Wrap directory can be chaining like partial, component folder can be connected togather inside like graph structure
 
 ## Special Directory
-- ## __style Directory
-- ## __action Directory
-- ## __component Directory
+- [ `__style` Directory](#style-directory)
+- [ `__action` Directory](#action-directory)
+- [ `__component` Directory](#component-directory)
 
-### `Note:` two underline give an alert, there is a special case
+
+### `Note:` Two underline give an alert, there is a special case
 
 ##  __style Directory: 
-__style directory used when two component has common style. it solve this rare issues by creating __style in the first parent of that directory to handle duplicate style.
+`__style` directory used when two component has common style. it solve this rare issues by creating `__style` in the first parent of that directory to handle duplicate style.
 
-## __action Directory:
-__action directory used when two component has common action. create __action in the first parent of that directory to handle duplicate action.
+## `__action` Directory:
+`__action` directory used when two component has common action. create `__action` in the first parent of that directory to handle duplicate action.
 
-## __Component Directory:
-__Component is used when a component is same in multiple container, we can solve the issue by creating __Component in the first parent of that directory to handle duplicate component.
+## `__Component` Directory:
+`__Component` is used when a component is same in multiple container, we can solve the issue by creating `__Component` in the first parent of that directory to handle duplicate component.
 
 ## Basic Building Blocks
 
 
-### TrimRedux
+### `TrimRedux`
 
 trim-redux is a tool for work simplify with the Redux in Reactjs. trim-redux removed reducer, combineReducer and action in redux usage process
 and let you work with redux like react component state!
