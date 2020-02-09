@@ -6,6 +6,7 @@
 - [General](general)
   - [**CLI Commands**](general/commands.md)
   - [Introduction ](general/introduction.md)
+  - [Tool Configuration](general/files.md)
 - [JS](js)
   - [Trim-Redux](js/trim-redux.md)
 - [Styling (CSS)](css/README.md)
