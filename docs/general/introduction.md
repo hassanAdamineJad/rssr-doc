@@ -34,6 +34,8 @@ Here's a curated list of packages that you should be at least familiar with befo
 ### `provider/`
 This is our starting point, which includes basic settings.
 - `provider/server`: As the name suggests, this folder contains development and production server configuration.
+    - [`development.js`](./development.js.md): contain development configuration
+    - [`production.js`](./production.js.md): contain production configuration
 
 - `provider/webpack`: This folder contains webpack configuration 
 
