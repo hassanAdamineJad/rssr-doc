@@ -1,4 +1,5 @@
 # Development Configuration
+## `isomorphic`
 
 ## `Express` 
 Express.js, or simply Express, is a web application framework for Node.js, released as free and open-source software under the MIT License. It is designed for building web applications and APIs. It has been called the de facto standard server framework for Node.js. [`More Info`](https://expressjs.com/)
@@ -53,3 +54,70 @@ Webpack Hot Server Middleware is designed to be used in conjunction with webpack
     // hot update Webpack bundles on the server
     app.use(webpackHotServerMiddleware(compiler));
 
+## `rssr-env-loader`
+load env files and define environment varibale [More info](https://www.npmjs.com/package/rssr-env-loader)       
+
+## `rssr-server-is-ready`
+use to check node server is ready [More info](https://github.com/rssr-org/rssr-server-is-ready)   
+
+## `open`
+
+Open stuff like URLs, files, executables. Cross-platform. [More info](https://www.npmjs.com/package/open)   
+
+    // load .env files and define environment varibale before all actions
+    require('../setup/evnLoader');
+    // define global.FILE_VERSION for dist file version. see render/Index.js template. ::5::
+    require('../setup/fileVersion');
+
+    const open = require('open')
+    const cookieParser = require('cookie-parser')
+    const express = require('express')
+    const webpack = require('webpack')
+    const config = require('../webpack/development')
+    const webpackDevMiddleware = require('webpack-dev-middleware')
+    const webpackHotMiddleware = require('webpack-hot-middleware')
+    const webpackHotServerMiddleware = require('webpack-hot-server-middleware')
+    const devServerIsReady = require('../setup/devServerIsReady')
+    const {DIST_ROUTE, PUBLIC_PATH} = require('../setup/constant')
+
+    // express app
+    const app = express();
+
+    // cookie
+    app.use(cookieParser())
+
+    // create webpack compiler
+    const compiler = webpack(config);
+
+    // make bundled project source files accessable from memory
+    app.use(webpackDevMiddleware(compiler, {
+        serverSideRender: true,
+        publicPath: DIST_ROUTE
+    }));
+
+    // static files
+    app.use(express.static(PUBLIC_PATH));
+
+    // recompile webpack when file changes
+    app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
+
+    // hot update Webpack bundles on the server
+    app.use(webpackHotServerMiddleware(compiler));
+
+    // run server
+    const PORT = process.env.PORT || 4000;
+
+    app.listen(PORT, error => {
+        if (error) {
+            return console.error('Error in server.development.js: ', error);
+        } else {
+            // wait to project built and app ready
+            devServerIsReady(PORT)
+                .then(function () {
+                    // open project in browser
+                    open(`http://localhost:${PORT}`);
+
+                    console.log(`development server running at http://localhost:${process.env.PORT}`);
+                })
+        }
+    });
