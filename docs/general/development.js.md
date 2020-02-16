@@ -18,3 +18,38 @@ Parse Cookie header and populate req.cookies with an object keyed by the cookie 
     // cookie
     app.use(cookieParser())
 
+## `webpack`
+webpack is an open-source JavaScript module bundler. It is a module bundler primarily for JavaScript, but it can transform front-end assets like HTML, CSS, and images if the corresponding loaders are included. webpack takes modules with dependencies and generates static assets representing those modules. [`More info`](https://webpack.js.org/)
+
+    // create webpack compiler
+    const compiler = webpack(config);
+
+## `webpackDevMiddleware`
+An express-style development middleware for use with webpack bundles and allows for serving of the files emitted from webpack. This should be used for development only.
+
+    // make bundled project source files accessable from memory
+    app.use(webpackDevMiddleware(compiler, {
+        serverSideRender: true,
+        publicPath: DIST_ROUTE
+    }));
+
+
+Some of the benefits of using this middleware include:
+- No files are written to disk, rather it handles files in memory
+- If files changed in watch mode, the middleware delays requests until compiling has completed.
+- Supports hot module reload (HMR).
+
+
+## `webpackHotMiddleware`
+Webpack hot reloading using only webpack-dev-middleware. This allows you to add hot reloading into an existing server without webpack-dev-server.
+This module is only concerned with the mechanisms to connect a browser client to a webpack server & receive updates. It will subscribe to changes from the server and execute those changes using webpack's HMR API. Actually making your application capable of using hot reloading to make seamless changes is out of scope, and usually handled by another library. 
+
+    // recompile webpack when file changes
+    app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
+
+## `webpackHotServerMiddleware`
+Webpack Hot Server Middleware is designed to be used in conjunction with webpack-dev-middleware (and optionally webpack-hot-middleware) to hot update Webpack bundles on the server.
+
+    // hot update Webpack bundles on the server
+    app.use(webpackHotServerMiddleware(compiler));
+
